@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طارق الديراوي - بناء حضورك الرقمي</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        linkedin: {
+                            blue: '#0A66C2',
+                            dark: '#004182',
+                            bg: '#F3F2EF',
+                            text: '#191919',
+                            gray: '#666666',
+                            light: '#EBEBEB',
+                            border: '#E0DFDC'
+                        }
+                    },
+                    fontFamily: {
+                        almarai: ['Almarai', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Almarai', sans-serif; scroll-behavior: smooth; background-color: #F3F2EF; color: #191919; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F3F2EF; }
+        ::-webkit-scrollbar-thumb { background: #0A66C2; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #004182; }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(10, 102, 194, 0.15);
+            border-color: #0A66C2;
+        }
+    </style>
+  <script data-arena-recording="true">(function(){
+"use strict";
+var SK="__arena_rec",RRWEB_CDN="https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.4/dist/rrweb.min.js";
+var MAX_RECORDING_MS=600000,MAX_RRWEB_EVENTS=30000,MAX_INTERACTIONS=5000,MAX_CURSOR_POINTS=10000,recStopped=false;
+var stored=null;try{var raw=sessionStorage.getItem(SK);if(raw)stored=JSON.parse(raw);}catch(ex){}
+var meta=stored?stored.m||null:null,rrwebEvents=stored?stored.r||[]:[],rrwebStarted=false,startTime=stored?stored.st||Date.now():Date.now();
+var interactions=stored?stored.i||[]:[],cursorPath=stored?stored.c||[]:[],lastCursorSample=0,lastScrollSample=0;
+var pageHeight=document.documentElement.scrollHeight;
+var viewport={width:window.innerWidth,height:window.innerHeight};
+function isCapped(){if(recStopped)return true;if(Date.now()-startTime>=MAX_RECORDING_MS){recStopped=true;return true;}return false;}
+function persist(){try{var d=JSON.stringify({r:rrwebEvents,i:interactions,c:cursorPath,m:meta,st:startTime});sessionStorage.setItem(SK,d);}catch(ex){rrwebEvents=rrwebEvents.slice(Math.floor(rrwebEvents.length/2));try{sessionStorage.setItem(SK,JSON.stringify({r:rrwebEvents,i:interactions,c:cursorPath,m:meta,st:startTime}));}catch(ex2){}}}
+setInterval(persist,5000);
+window.addEventListener("resize",function(){viewport={width:window.innerWidth,height:window.innerHeight};pageHeight=document.documentElement.scrollHeight;});
+document.addEventListener("click",function(e){if(isCapped()||interactions.length>=MAX_INTERACTIONS)return;var el=e.target;var tag=el.tagName?el.tagName.toLowerCase():"";var text=(el.textContent||"").trim().substring(0,80);var classes=el.className&&typeof el.className==="string"?el.className.substring(0,120):"";interactions.push({type:"click",t:Date.now()-startTime,x:Math.round(e.clientX),y:Math.round(e.clientY),element:{tag:tag,text:text,classes:classes}});},true);
+window.addEventListener("scroll",function(){if(isCapped()||interactions.length>=MAX_INTERACTIONS)return;var now=Date.now();if(now-lastScrollSample<200)return;lastScrollSample=now;var scrollY=Math.round(window.scrollY||window.pageYOffset||0);var depthPct=pageHeight>viewport.height?Math.min(100,Math.round(((scrollY+viewport.height)/pageHeight)*100)):100;interactions.push({type:"scroll",t:now-startTime,y:scrollY,depth_pct:depthPct});},{passive:true});
+document.addEventListener("mousemove",function(e){if(isCapped()||cursorPath.length>=MAX_CURSOR_POINTS)return;var now=Date.now();if(now-lastCursorSample<250)return;lastCursorSample=now;cursorPath.push([Math.round(e.clientX),Math.round(e.clientY),now-startTime]);},{passive:true});
+document.addEventListener("keydown",function(e){if(isCapped()||interactions.length>=MAX_INTERACTIONS)return;if(e.target&&(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA"))return;interactions.push({type:"keydown",t:Date.now()-startTime,key:e.key});},true);
+function buildAnalytics(){if(!meta)return null;var ph=document.documentElement.scrollHeight;var maxScroll=0,clickElements={},firstClick=null,firstScroll=null,totalDistance=0;for(var i=0;i<interactions.length;i++){var ev=interactions[i];if(ev.type==="scroll"){if(ev.depth_pct>maxScroll)maxScroll=ev.depth_pct;if(!firstScroll)firstScroll=ev.t;}if(ev.type==="click"){if(!firstClick)firstClick=ev.t;var key=ev.element.tag+":"+ev.element.text.substring(0,30);clickElements[key]=true;}}for(var j=1;j<cursorPath.length;j++){var dx=cursorPath[j][0]-cursorPath[j-1][0];var dy=cursorPath[j][1]-cursorPath[j-1][1];totalDistance+=Math.sqrt(dx*dx+dy*dy);}var duration=Date.now()-startTime;var clickHeatmap=[];for(var k=0;k<interactions.length;k++){if(interactions[k].type==="click")clickHeatmap.push([interactions[k].x,interactions[k].y]);}return{generation_id:meta.generationId,tournament_id:meta.tournamentId,started_at:new Date(startTime).toISOString(),ended_at:new Date().toISOString(),duration_ms:duration,viewport:viewport,page_height:ph,interactions:interactions,cursor_path:cursorPath,click_heatmap:clickHeatmap,summary:{total_clicks:clickHeatmap.length,total_scrolls:interactions.filter(function(e){return e.type==="scroll";}).length,max_scroll_depth_pct:maxScroll,unique_elements_clicked:Object.keys(clickElements).length,time_to_first_click_ms:firstClick,time_to_first_scroll_ms:firstScroll,cursor_distance_px:Math.round(totalDistance),active_time_ms:duration}};}
+function loadRrweb(){if(rrwebStarted)return;rrwebStarted=true;var s=document.createElement("script");s.src=RRWEB_CDN;s.onload=function(){var rec=(window.rrweb&&window.rrweb.record)||window.rrwebRecord;if(!rec)return;rec({emit:function(event){if(rrwebEvents.length>=MAX_RRWEB_EVENTS||isCapped())return;rrwebEvents.push(event);}});};s.onerror=function(){};document.head.appendChild(s);}
+window.addEventListener("message",function(e){if(!e.data||typeof e.data.type!=="string")return;if(e.data.type==="arena:init"){if(!meta)startTime=Date.now();meta={generationId:e.data.generationId||e.data.modelId,tournamentId:e.data.tournamentId};persist();loadRrweb();if(e.source)e.source.postMessage({type:"arena:init-ack",generationId:meta.generationId},"*");}if(e.data.type==="arena:flush"){var resp={type:"arena:recording-data",generationId:meta?meta.generationId:null,rrwebEvents:rrwebEvents,analytics:buildAnalytics()};try{sessionStorage.removeItem(SK);}catch(ex){}if(e.source)e.source.postMessage(resp,"*");}});
+loadRrweb();
+})();</script>
+  <script data-arena-views="true">(function(){var isTop=false;try{isTop=window.self===window.top;}catch(e){}if(!isTop)return;window.__ARENA_META={generationId:"gemini-3-pro-preview",tournamentId:"92735d84-7079-4081-893f-d30487cd2d44"};var payload={tournamentId:"92735d84-7079-4081-893f-d30487cd2d44",modelId:"gemini-3-pro-preview"};try{var r=document.referrer;if(r){var u=new URL(r);payload.referrerDomain=u.hostname;}}catch(e){}try{var vid=null;try{vid=localStorage.getItem('arena_vid');}catch(e){}if(!vid){vid=typeof crypto!=="undefined"&&crypto.randomUUID?crypto.randomUUID():(Date.now().toString(36)+Math.random().toString(36).slice(2)).slice(0,32);try{localStorage.setItem('arena_vid',vid);}catch(e){}}if(vid)payload.viewerId=vid;}catch(e){}try{fetch("https://www.designarena.ai/api/agon/page-views",{"method":"POST","headers":{"Content-Type":"application/json"},"body":JSON.stringify(payload),"keepalive":true});}catch(e){}})();</script>
+</head>
+<body class="antialiased">
+    
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-white border-b border-linkedin-border shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="bg-linkedin-blue w-10 h-10 flex items-center justify-center rounded-md">
+                    <i class="fa-brands fa-linkedin-in text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tight text-linkedin-text">طارق <span class="text-linkedin-blue">الديراوي</span></span>
+            </div>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#home" class="text-linkedin-gray hover:text-linkedin-blue transition-colors font-bold text-sm">الرئيسية</a>
+                <a href="#stats" class="text-linkedin-gray hover:text-linkedin-blue transition-colors font-bold text-sm">أرقام وإحصائيات</a>
+                <a href="#services" class="text-linkedin-gray hover:text-linkedin-blue transition-colors font-bold text-sm">خدماتي</a>
+                <a href="#process" class="text-linkedin-gray hover:text-linkedin-blue transition-colors font-bold text-sm">منهجية العمل</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="#contact-section" class="hidden md:inline-flex bg-linkedin-blue hover:bg-linkedin-dark text-white px-6 py-2 rounded-full font-bold text-sm transition-colors">
+                تواصل معي
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-linkedin-text text-2xl" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Nav Menu (Hidden by default) -->
+        <div class="lg:hidden hidden bg-white w-full border-b border-linkedin-border shadow-md" id="mobile-menu">
+            <div class="flex flex-col px-6 py-4 gap-4">
+                <a href="#home" class="text-linkedin-text font-bold py-2 border-b border-linkedin-light">الرئيسية</a>
+                <a href="#stats" class="text-linkedin-gray font-bold py-2 border-b border-linkedin-light">أرقام وإحصائيات</a>
+                <a href="#services" class="text-linkedin-gray font-bold py-2 border-b border-linkedin-light">خدماتي</a>
+                <a href="#process" class="text-linkedin-gray font-bold py-2 border-b border-linkedin-light">منهجية العمل</a>
+                <a href="#contact-section" class="text-linkedin-blue font-bold py-2">تواصل معي</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 bg-white border-b border-linkedin-border relative overflow-hidden min-h-[85vh] flex items-center">
+        <!-- Subtle background gradient -->
+        <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-white -z-10"></div>
+        
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <!-- Badge -->
+                <div class="inline-flex items-center bg-blue-50 border border-blue-100 text-linkedin-blue px-6 py-2 rounded-full text-sm font-bold mb-8 shadow-sm">
+                    <i class="fa-solid fa-user-tie ml-2"></i>
+                    طارق الديراوي - متخصص التسويق ولينكدإن
+                </div>
+                
+                <!-- Headings (إضافة مسافة بين الجملتين) -->
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-relaxed mb-6 text-linkedin-text flex flex-col gap-3">
+                    <span>أبني حضورك الرقمي</span>
+                    <span class="text-linkedin-blue">وأترك بصمة لك</span>
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-lg md:text-xl text-linkedin-gray mb-10 leading-relaxed max-w-2xl mx-auto">
+                    أقدم لك حلولاً تسويقية مبتكرة وأبني لك علامة تجارية شخصية قوية على لينكدإن لتصل إلى جمهورك المستهدف وتحقق أهدافك المهنية والتجارية.
+                </p>
+                
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#services" class="w-full sm:w-auto bg-linkedin-blue hover:bg-linkedin-dark text-white px-8 py-4 rounded-full font-bold text-base transition-colors flex items-center justify-center gap-2 shadow-lg shadow-linkedin-blue/20">
+                        استكشف خدماتي
+                        <i class="fa-solid fa-arrow-left text-sm"></i>
+                    </a>
+                    <a href="#contact-section" class="w-full sm:w-auto bg-white border-2 border-linkedin-border text-linkedin-text hover:border-linkedin-blue hover:text-linkedin-blue px-8 py-4 rounded-full font-bold text-base transition-all">
+                        تواصل معي
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-16 bg-linkedin-bg">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Stat 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-linkedin-border text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-linkedin-blue rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-4xl font-extrabold text-linkedin-text mb-2">+150</h3>
+                    <p class="text-linkedin-gray font-bold text-lg">عميل</p>
+                </div>
+                
+                <!-- Stat 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-linkedin-border text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-linkedin-blue rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-4xl font-extrabold text-linkedin-text mb-2">2</h3>
+                    <p class="text-linkedin-gray font-bold text-lg">سنتين خبرة</p>
+                </div>
+                
+                <!-- Stat 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-linkedin-border text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-linkedin-blue rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-4xl font-extrabold text-linkedin-text mb-2">+1M</h3>
+                    <p class="text-linkedin-gray font-bold text-lg">وصول للجمهور</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white border-y border-linkedin-border">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-linkedin-blue font-bold tracking-wider mb-2 text-sm uppercase">خدماتي</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-linkedin-text">كيف يمكنني مساعدتك في <span class="text-linkedin-blue">نموك الرقمي؟</span></h2>
+                <p class="text-linkedin-gray text-lg">
+                    مجموعة من الخدمات المخصصة لبناء حضور قوي ومؤثر على منصة لينكدإن والمنصات الرقمية.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-linkedin-border service-card">
+                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-linkedin-blue text-2xl mb-6">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-linkedin-text">تحسين الملف الشخصي</h3>
+                    <p class="text-linkedin-gray leading-relaxed mb-4 text-sm">
+                        إعادة صياغة وتصميم ملفك الشخصي على لينكدإن ليكون بمثابة صفحة هبوط احترافية تجذب الانتباه وتعكس قيمتك الحقيقية.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-linkedin-border service-card">
+                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-linkedin-blue text-2xl mb-6">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-linkedin-text">صناعة المحتوى</h3>
+                    <p class="text-linkedin-gray leading-relaxed mb-4 text-sm">
+                        خطة محتوى متكاملة تتضمن كتابة منشورات تفاعلية ومقالات تعزز من مكانتك كخبير في مجالك (Thought Leadership).
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-linkedin-border service-card">
+                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-linkedin-blue text-2xl mb-6">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-linkedin-text">بناء هوية بصرية</h3>
+                    <p class="text-linkedin-gray leading-relaxed mb-4 text-sm">
+                        تصميم هوية بصرية متكاملة تعكس شخصيتك المهنية وتجعل محتواك وحسابك مميزاً واحترافياً في أذهان المتابعين.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl border border-linkedin-border service-card">
+                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-linkedin-blue text-2xl mb-6">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-linkedin-text">الذكاء الاصطناعي بالتصميم والمحتوى</h3>
+                    <p class="text-linkedin-gray leading-relaxed mb-4 text-sm">
+                        استخدام أحدث أدوات الذكاء الاصطناعي لإنشاء محتوى مبتكر وتصاميم عصرية توفر الوقت وتزيد من جودة المخرجات.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-2xl border border-linkedin-border service-card">
+                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-linkedin-blue text-2xl mb-6">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-linkedin-text">الاستشارات والتدريب</h3>
+                    <p class="text-linkedin-gray leading-relaxed mb-4 text-sm">
+                        جلسات استشارية فردية لكيفية الاستخدام الأمثل لمنصة لينكدإن وبناء شبكة علاقات قوية تخدم أهدافك.
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-2xl border border-linkedin-border service-card">
+                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-linkedin-blue text-2xl mb-6">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-linkedin-text">إدارة الحسابات الشاملة</h3>
+                    <p class="text-linkedin-gray leading-relaxed mb-4 text-sm">
+                        إدارة كاملة لحسابك من الألف إلى الياء، لتوفر وقتك وتركز على إدارة أعمالك بينما أهتم أنا بنموك الرقمي.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-linkedin-bg border-b border-linkedin-border">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-linkedin-blue font-bold tracking-wider mb-2 text-sm uppercase">خارطة الطريق</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-linkedin-text">كيف أعمل <span class="text-linkedin-blue">معك؟</span></h2>
+                <p class="text-linkedin-gray text-lg">
+                    منهجية عمل واضحة ومجربة تضمن لك تحقيق أفضل النتائج.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Desktop Connector Line -->
+                <div class="hidden md:block absolute top-10 right-0 w-full h-0.5 bg-linkedin-border z-0"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative text-center z-10">
+                    <div class="w-20 h-20 mx-auto bg-white border border-linkedin-border rounded-full flex items-center justify-center text-2xl font-extrabold text-linkedin-blue mb-4 shadow-sm">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-linkedin-text">الاستكشاف والتحليل</h3>
+                    <p class="text-linkedin-gray text-sm">
+                        أفهم أهدافك، جمهورك المستهدف، وأحلل وضعك الحالي.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative text-center z-10">
+                    <div class="w-20 h-20 mx-auto bg-white border border-linkedin-border rounded-full flex items-center justify-center text-2xl font-extrabold text-linkedin-blue mb-4 shadow-sm">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-linkedin-text">بناء الاستراتيجية</h3>
+                    <p class="text-linkedin-gray text-sm">
+                        أضع خطة مخصصة للمحتوى والهوية تتناسب مع أهدافك.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative text-center z-10">
+                    <div class="w-20 h-20 mx-auto bg-white border border-linkedin-border rounded-full flex items-center justify-center text-2xl font-extrabold text-linkedin-blue mb-4 shadow-sm">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-linkedin-text">التنفيذ</h3>
+                    <p class="text-linkedin-gray text-sm">
+                        أبدأ في كتابة المحتوى، تحسين الحساب، وتصميم الهوية.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative text-center z-10">
+                    <div class="w-20 h-20 mx-auto bg-linkedin-blue text-white rounded-full flex items-center justify-center text-2xl font-extrabold mb-4 shadow-md">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-linkedin-text">القياس والنمو</h3>
+                    <p class="text-linkedin-gray text-sm">
+                        أراقب النتائج، وأطور الأداء لضمان نمو مستمر.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-section" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Right Column: Contact Info -->
+                <div>
+                    <h4 class="text-linkedin-blue font-bold mb-2 text-sm">تواصل معي</h4>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-linkedin-dark">دعنا نبدأ رحلة نجاحك الرقمي</h2>
+                    <p class="text-linkedin-gray text-lg mb-10 leading-relaxed">
+                        سواء كنت تبحث عن بناء علامتك الشخصية على لينكدإن، صناعة المحتوى، أو استشارة تسويقية، أنا هنا لمساعدتك.
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-linkedin-blue shrink-0">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-linkedin-text mb-1">البريد الإلكتروني</h5>
+                                <a href="mailto:tareq.m.derawi@gmail.com" dir="ltr" class="text-linkedin-gray hover:text-linkedin-blue transition-colors text-sm font-sans">tareq.m.derawi@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-linkedin-blue shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-linkedin-text mb-1">رقم الهاتف</h5>
+                                <a href="tel:+972567503390" dir="ltr" class="text-linkedin-gray hover:text-linkedin-blue transition-colors text-sm font-sans">+972 56 750 3390</a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-linkedin-blue shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-linkedin-text mb-1">العنوان</h5>
+                                <p class="text-linkedin-gray text-sm">فلسطين - قطاع غزة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Column: Contact Form -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-sm border border-linkedin-border">
+                    <h3 class="text-2xl font-extrabold text-linkedin-text mb-6">أرسل لي رسالة</h3>
+                    
+                    <form class="space-y-5">
+                        <!-- Row 1: Name & Email -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-linkedin-text mb-2">الاسم الكامل</label>
+                                <input type="text" id="name" placeholder="أدخل اسمك" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-linkedin-blue focus:ring-1 focus:ring-linkedin-blue transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-bold text-linkedin-text mb-2">البريد الإلكتروني</label>
+                                <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-linkedin-blue focus:ring-1 focus:ring-linkedin-blue transition-colors font-sans" dir="ltr">
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Service Dropdown -->
+                        <div>
+                            <label for="service" class="block text-sm font-bold text-linkedin-text mb-2">الخدمة المطلوبة</label>
+                            <select id="service" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm text-linkedin-gray focus:outline-none focus:border-linkedin-blue focus:ring-1 focus:ring-linkedin-blue transition-colors appearance-none cursor-pointer">
+                                <option value="" disabled selected>اختر الخدمة...</option>
+                                <option value="profile">تحسين الملف الشخصي</option>
+                                <option value="content">صناعة المحتوى</option>
+                                <option value="identity">بناء هوية بصرية</option>
+                                <option value="ai">الذكاء الاصطناعي بالتصميم والمحتوى</option>
+                                <option value="consulting">الاستشارات والتدريب</option>
+                                <option value="management">إدارة الحسابات الشاملة</option>
+                            </select>
+                        </div>
+
+                        <!-- Row 3: Message Textarea -->
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-linkedin-text mb-2">رسالتك</label>
+                            <textarea id="message" rows="4" placeholder="كيف يمكنني مساعدتك؟" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-linkedin-blue focus:ring-1 focus:ring-linkedin-blue transition-colors resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-linkedin-dark hover:bg-linkedin-blue text-white font-bold py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2 mt-2">
+                            إرسال الرسالة
+                            <i class="fa-solid fa-paper-plane text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-linkedin-border py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                
+                <!-- Social Links (Improved Design) -->
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <span class="text-linkedin-text font-extrabold text-lg">تواصل معي عبر المنصات</span>
+                    <div class="flex items-center gap-5">
+                        <a href="https://www.linkedin.com/in/tareq-derawi-141951351" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-14 h-14 rounded-full bg-gray-50 border border-gray-200 text-linkedin-gray hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1.5" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in text-2xl transition-transform group-hover:scale-110"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tareq._.marketing/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-14 h-14 rounded-full bg-gray-50 border border-gray-200 text-linkedin-gray hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] hover:border-transparent hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1.5" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-2xl transition-transform group-hover:scale-110"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61572422439926" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-14 h-14 rounded-full bg-gray-50 border border-gray-200 text-linkedin-gray hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1.5" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-2xl transition-transform group-hover:scale-110"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-center md:text-left">
+                    <p class="text-linkedin-gray text-base font-bold">
+                        &copy; 2026 طارق الديراوي. جميع الحقوق محفوظة.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
