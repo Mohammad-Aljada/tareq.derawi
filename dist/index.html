@@ -409,8 +409,6 @@ loadRrweb();
                                 <option value="consulting">الاستشارات والتدريب</option>
                                 <option value="management">إدارة الحسابات الشاملة</option>
                             </select>
-                            <!-- نص الخدمة بالعربي لقالب الإيميل (يرسل مع النموذج) -->
-                            <input type="hidden" id="service_label" name="service_label" value="">
                         </div>
 
                         <!-- Row 3: Message Textarea -->
@@ -484,26 +482,13 @@ loadRrweb();
     <!-- EmailJS (client-side email sending) -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        const EMAILJS_PUBLIC_KEY = 'yjfvyiqu13Mk6kZQm';
-        const EMAILJS_SERVICE_ID = 'service_cr93nh1';
-        const EMAILJS_TEMPLATE_ID = 'template_gkylfti';
+        const EMAILJS_PUBLIC_KEY = 'REPLACE_WITH_PUBLIC_KEY';
+        const EMAILJS_SERVICE_ID = 'REPLACE_WITH_SERVICE_ID';
+        const EMAILJS_TEMPLATE_ID = 'REPLACE_WITH_TEMPLATE_ID';
 
         const form = document.getElementById('contact-form');
         const submitBtn = document.getElementById('contact-submit');
         const statusEl = document.getElementById('contact-status');
-        const serviceSelect = document.getElementById('service');
-        const serviceLabelInput = document.getElementById('service_label');
-
-        function getServiceArabicLabel() {
-            const opt = serviceSelect.options[serviceSelect.selectedIndex];
-            return opt && opt.value ? String(opt.text).trim() : '';
-        }
-
-        function syncServiceLabel() {
-            serviceLabelInput.value = getServiceArabicLabel();
-        }
-
-        serviceSelect.addEventListener('change', syncServiceLabel);
 
         function setStatus(message, variant) {
             statusEl.textContent = message;
@@ -549,50 +534,8 @@ loadRrweb();
             submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
             setStatus('جارٍ الإرسال...', 'info');
 
-            syncServiceLabel();
-
-            const fromName = document.getElementById('name').value.trim();
-            const replyTo = document.getElementById('email').value.trim();
-            const messageText = document.getElementById('message').value.trim();
-            const serviceKey = serviceSelect.value;
-            const serviceAr = getServiceArabicLabel() || serviceKey;
-
-            const serviceLine = 'الخدمة المطلوبة: ' + serviceAr;
-            /** نص السطر الثاني في بطاقات البريد — ضعه في القالب بدل {{message}} إذا كان يظهر جزء من الرسالة فقط */
-            const messageForEmail = serviceLine + '\n\n' + messageText;
-
-            /** يُرسل لقالب EmailJS — في القالب: السطر الثاني استخدم {{service_line}} أو {{message_for_email}} */
-            const templateParams = {
-                from_name: fromName,
-                name: fromName,
-                user_name: fromName,
-                sender_name: fromName,
-                reply_to: replyTo,
-                email: replyTo,
-                message: messageText,
-                message_for_email: messageForEmail,
-                service: serviceKey,
-                service_label: serviceAr,
-                service_type: serviceAr,
-                service_line: serviceLine,
-                subtitle: serviceLine,
-                line_2: serviceLine,
-                email_summary:
-                    'اسم المرسل: ' +
-                    fromName +
-                    '\nنوع الخدمة: ' +
-                    serviceAr +
-                    ' (' +
-                    serviceKey +
-                    ')' +
-                    '\nالبريد: ' +
-                    replyTo +
-                    '\n\nالرسالة:\n' +
-                    messageText,
-            };
-
             try {
-                await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                await window.emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
                 setStatus('تم إرسال رسالتك بنجاح. سأعود إليك قريباً.', 'success');
                 form.reset();
             } catch (err) {
